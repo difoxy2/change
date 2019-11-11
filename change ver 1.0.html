@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<textarea id="myTextarea" rows="20" cols="50"></textarea>
+
+<br><br>   
+    
+<button type="button" onclick="myFunction()">Try it</button>
+
+<br><br>    
+    
+<div id="myDIV2"></div>
+    <br>      
+<div id="myDIV" style="font-family: calibri;font-size: 15px"></div>  
+    
+    
+    
+    
+    
+<script>
+    
+    
+function myFunction() {
+
+document.getElementById("myDIV").innerHTML = "";
+    
+//count result Var    
+var count = 0;
+
+//document.getElementById("myDIV").innerHTML = document.getElementById("myTextarea").value;
+
+//regex formatting    
+var str = document.getElementById("myTextarea").value;
+var z = str.split(/\n/);
+//var z  = str.split(/Number .|NNuummbbeerr: :|NNuummbbeerr ::|Number:/);
+
+
+
+//Happy function   
+for (var i = 0; i < z.length; i++){
+
+z[i] = z[i].replace(/[\r\n]+|\s+/g, "");
+		
+        if (!isNaN(z[i]) && z[i].length == 8){
+        //if (!isNaN(z[i].substring(0, 8)) && z[i].length >= 8) {
+            count++;
+            document.getElementById("myDIV2").innerHTML = count;
+            document.getElementById("myDIV").innerHTML = document.getElementById("myDIV").innerHTML + z[i].substring(0, 8) + '<br>';
+    	}
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+    
+
+
+    
+</script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
+
